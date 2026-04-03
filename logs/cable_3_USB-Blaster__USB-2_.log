@@ -1,0 +1,616 @@
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:12 char:20
++ ...             $output = & $pgm -m jtag -c $cableName -o "pvb;$pof" 2>&1
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error (213019): Can't scan JTAG chain. Error code 87.
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:12 char:20
++ ...             $output = & $pgm -m jtag -c $cableName -o "pvb;$pof" 2>&1
++                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 12:18:10 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 12:18:11 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 12:18:12 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:18:15 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:18:57 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4477 megabytes
+    Info: Processing ended: Fri Feb 20 12:18:57 2026
+    Info: Elapsed time: 00:00:47
+    Info: Total CPU time (on all processors): 00:00:25
+[2/20/2026 12:26:16 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 12:26:16 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 12:26:18 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 12:26:21 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:26:27 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:27:16 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 12:27:16 2026
+    Info: Elapsed time: 00:01:00
+    Info: Total CPU time (on all processors): 00:00:36
+[2/20/2026 12:27:16 PM] SUCCESS
+[2/20/2026 12:28:41 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 12:28:41 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 12:28:44 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 12:28:47 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:28:55 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:29:45 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 12:29:45 2026
+    Info: Elapsed time: 00:01:04
+    Info: Total CPU time (on all processors): 00:00:29
+[2/20/2026 12:29:45 PM] SUCCESS
+[2/20/2026 12:31:26 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 12:31:26 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 12:31:29 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 12:31:32 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:31:40 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:32:29 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 12:32:29 2026
+    Info: Elapsed time: 00:01:03
+    Info: Total CPU time (on all processors): 00:00:31
+[2/20/2026 12:32:29 PM] SUCCESS
+[2/20/2026 12:35:47 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error (213019): Can't scan JTAG chain. Error code 87.
+[2/20/2026 12:35:50 PM] FAIL exitcode=3
+[2/20/2026 12:35:51 PM] Cable 3 (USB-Blaster [USB-2]) attempt 2/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 12:35:51 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 12:35:52 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 12:35:58 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:36:02 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 12:36:52 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 12:36:52 2026
+    Info: Elapsed time: 00:01:01
+    Info: Total CPU time (on all processors): 00:00:23
+[2/20/2026 12:36:52 PM] SUCCESS
+[2/20/2026 2:00:54 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+[2/20/2026 2:01:27 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:01:27 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:01:29 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:01:31 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:01:39 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:02:24 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4477 megabytes
+    Info: Processing ended: Fri Feb 20 14:02:24 2026
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:00:13
+[2/20/2026 2:02:24 PM] SUCCESS
+[2/20/2026 2:03:39 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:03:39 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:03:42 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:03:46 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:03:52 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:04:40 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 14:04:40 2026
+    Info: Elapsed time: 00:01:01
+    Info: Total CPU time (on all processors): 00:00:15
+[2/20/2026 2:04:40 PM] SUCCESS
+[2/20/2026 2:07:36 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:07:36 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:07:39 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:07:42 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:07:50 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:08:40 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 14:08:40 2026
+    Info: Elapsed time: 00:01:04
+    Info: Total CPU time (on all processors): 00:00:19
+[2/20/2026 2:08:40 PM] SUCCESS
+[2/20/2026 2:09:33 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:09:33 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:09:36 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:09:39 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:09:47 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:10:38 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4476 megabytes
+    Info: Processing ended: Fri Feb 20 14:10:38 2026
+    Info: Elapsed time: 00:01:05
+    Info: Total CPU time (on all processors): 00:00:19
+[2/20/2026 2:10:38 PM] SUCCESS
+[2/20/2026 2:11:49 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error (213019): Can't scan JTAG chain. Error code 87.
+[2/20/2026 2:11:51 PM] FAIL exitcode=3
+[2/20/2026 2:11:52 PM] Cable 3 (USB-Blaster [USB-2]) attempt 2/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:11:52 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:11:54 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:11:58 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:12:03 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:12:51 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4477 megabytes
+    Info: Processing ended: Fri Feb 20 14:12:51 2026
+    Info: Elapsed time: 00:00:59
+    Info: Total CPU time (on all processors): 00:00:13
+[2/20/2026 2:12:51 PM] SUCCESS
+[2/20/2026 2:14:34 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error (213019): Can't scan JTAG chain. Error code 87.
+[2/20/2026 2:14:37 PM] FAIL exitcode=3
+[2/20/2026 2:14:38 PM] Cable 3 (USB-Blaster [USB-2]) attempt 2/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:14:38 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:14:39 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:14:43 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:14:49 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:15:36 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4477 megabytes
+    Info: Processing ended: Fri Feb 20 14:15:36 2026
+    Info: Elapsed time: 00:00:58
+    Info: Total CPU time (on all processors): 00:00:52
+[2/20/2026 2:15:36 PM] SUCCESS
+[2/20/2026 2:19:33 PM] Cable 3 (USB-Blaster [USB-2]) attempt 1/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Error (213019): Can't scan JTAG chain. Error code 87.
+[2/20/2026 2:19:36 PM] FAIL exitcode=3
+[2/20/2026 2:19:37 PM] Cable 3 (USB-Blaster [USB-2]) attempt 2/3
+quartus_pgm.exe : TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function 
+_msize
+At line:21 char:31
++ ...    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
++                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (TBBmalloc: skip...function _msize:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Info: *******************************************************************
+Info: Running Quartus Prime Programmer
+    Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
+    Info: Copyright (C) 2025  Altera Corporation. All rights reserved.
+    Info: Your use of Altera Corporation's design tools, logic functions 
+    Info: and other software and tools, and any partner logic 
+    Info: functions, and any output files from any of the foregoing 
+    Info: (including device programming or simulation files), and any 
+    Info: associated documentation or information are expressly subject 
+    Info: to the terms and conditions of the Altera Program License 
+    Info: Subscription Agreement, the Altera Quartus Prime License Agreement,
+    Info: the Altera IP License Agreement, or other applicable license
+    Info: agreement, including, without limitation, that your use is for
+    Info: the sole purpose of programming logic devices manufactured by
+    Info: Altera and sold by Altera or its authorized distributors.  Please
+    Info: refer to the Altera Software License Subscription Agreements 
+    Info: on the Quartus Prime software download page.
+    Info: Processing started: Fri Feb 20 14:19:37 2026
+Info: Command: quartus_pgm -m jtag -c "USB-Blaster [USB-2]" -o pvb;C:\Users\logan\Desktop\Coursework\Employment\flash_DE10\safe.pof
+Info (213045): Using programming cable "USB-Blaster [USB-2]"
+Info (213011): Using programming file C:/Users/logan/Desktop/Coursework/Employment/flash_DE10/safe.pof with checksum 0x058C5F66 for device 10M50DAF484ES@1
+Info (209060): Started Programmer operation at Fri Feb 20 14:19:39 2026
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209060): Started Programmer operation at Fri Feb 20 14:19:44 2026
+Info (209016): Configuring device index 1
+Info (209017): Device 1 contains JTAG ID code 0x031050DD
+Info (209007): Configuration succeeded -- 1 device(s) configured
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:19:49 2026
+Info (209024): Programming device 1
+Info (209011): Successfully performed operation(s)
+Info (209061): Ended Programmer operation at Fri Feb 20 14:20:36 2026
+Info: Quartus Prime Programmer was successful. 0 errors, 0 warnings
+    Info: Peak virtual memory: 4477 megabytes
+    Info: Processing ended: Fri Feb 20 14:20:36 2026
+    Info: Elapsed time: 00:00:59
+    Info: Total CPU time (on all processors): 00:00:11
+[2/20/2026 2:20:36 PM] SUCCESS

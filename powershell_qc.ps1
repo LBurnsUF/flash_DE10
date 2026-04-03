@@ -40,6 +40,151 @@ function Show-OkCancel($message, $title = "Confirm") {
     )
 }
 
+function Get-JtagCables {
+    param([string]$QuartusPgmPath)
+
+    $output = & $QuartusPgmPath --list 2>$null
+
+    $cables = @()
+    foreach ($line in $output) {
+        if ($line -match "^\s*(\d+)\)\s+(.+?)\s*$") {
+            $cables += [pscustomobject]@{
+                Index = [int]$Matches[1]
+                Name  = $Matches[2]
+            }
+        }
+    }
+    return $cables
+}
+
+function Ensure-JtagdRunning {
+    param([string]$QuartusBinDir)
+
+    $jtagd = Join-Path $QuartusBinDir "jtagd.exe"
+    if (-not (Test-Path $jtagd)) { return }
+
+    $already = Get-Process -Name "jtagd" -ErrorAction SilentlyContinue
+    if ($already) { return }
+
+    Start-Process -FilePath $jtagd -WorkingDirectory $QuartusBinDir -WindowStyle Hidden | Out-Null
+    Start-Sleep -Milliseconds 600
+}
+
+function Program-AllDevicesParallel {
+    param(
+        [string]$QuartusPgmPath,
+        [string]$QuartusBinDir,
+        [string]$PofFilePath,
+        [pscustomobject[]]$Cables = $null,
+        [int]$MaxAttempts = 3
+    )
+
+    if (-not $Cables -or $Cables.Count -eq 0) {
+        $Cables = Get-JtagCables $QuartusPgmPath
+    }
+
+    if (-not $Cables -or $Cables.Count -eq 0) {
+        Show-Info "No JTAG programmers detected." "Error"
+        return @()
+    }
+
+    Ensure-JtagdRunning -QuartusBinDir $QuartusBinDir
+
+    $logDir = Join-Path (Get-Location) "logs"
+    New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+
+    $jobs = @()
+
+    foreach ($c in $Cables) {
+
+        $safeName = ($c.Name -replace '[\\/:*?"<>|\[\] ]','_')
+        $logPath  = Join-Path $logDir ("cable_{0}_{1}.log" -f $c.Index, $safeName)
+
+        $jobs += Start-Job -ScriptBlock {
+            param($pgm, $binDir, $pof, $cableName, $cableIndex, $logPath, $maxAttempts)
+
+            $code = 999
+            $attemptUsed = 0
+
+            try {
+                $ld = Split-Path -Parent $logPath
+                New-Item -ItemType Directory -Path $ld -Force | Out-Null
+
+                Set-Location $binDir
+
+                Start-Sleep -Milliseconds (150 + (Get-Random -Minimum 0 -Maximum 250))
+
+                for ($attempt = 1; $attempt -le $maxAttempts; $attempt++) {
+                    $attemptUsed = $attempt
+
+                    ("[{0}] Cable {1} ({2}) attempt {3}/{4}" -f (Get-Date), $cableIndex, $cableName, $attempt, $maxAttempts) |
+                        Out-File -FilePath $logPath -Append -Encoding Default
+
+                    $output = & $pgm -m jtag -c $cableName -o ("pvb;{0}" -f $pof) 2>&1
+                    $code = $LASTEXITCODE
+
+                    $output | Out-File -FilePath $logPath -Append -Encoding Default
+
+                    if ($code -eq 0) {
+                        ("[{0}] SUCCESS" -f (Get-Date)) | Out-File -FilePath $logPath -Append -Encoding Default
+                        break
+                    }
+
+                    ("[{0}] FAIL exitcode={1}" -f (Get-Date), $code) | Out-File -FilePath $logPath -Append -Encoding Default
+
+                    if ($attempt -lt $maxAttempts) {
+                        $delayMs = 500 * $attempt + (Get-Random -Minimum 0 -Maximum 400)
+                        Start-Sleep -Milliseconds $delayMs
+                    }
+                }
+            }
+            catch {
+                $code = 999
+                ("[{0}] JOB EXCEPTION:`r`n{1}" -f (Get-Date), ($_ | Out-String)) |
+                    Out-File -FilePath $logPath -Append -Encoding Default
+            }
+
+            [pscustomobject]@{
+                CableIndex   = $cableIndex
+                CableName    = $cableName
+                ExitCode     = $code
+                AttemptsUsed = $attemptUsed
+                Success      = ($code -eq 0)
+                Log          = $logPath
+            }
+        } -ArgumentList $QuartusPgmPath, $QuartusBinDir, $PofFilePath, $c.Name, $c.Index, $logPath, $MaxAttempts
+    }
+
+    Wait-Job $jobs | Out-Null
+    $results = $jobs | Receive-Job
+    Remove-Job $jobs
+
+    return $results | Sort-Object CableIndex
+}
+
+function Restart-Jtagd {
+    param([string]$QuartusBinDir)
+
+    $jtagd = Join-Path $QuartusBinDir "jtagd.exe"
+    if (-not (Test-Path $jtagd)) { return }
+
+    Get-Process -Name "jtagd" -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue
+
+    Start-Process -FilePath $jtagd -WorkingDirectory $QuartusBinDir -WindowStyle Hidden | Out-Null
+    Start-Sleep -Milliseconds 800
+}
+
+function Get-JtagCablesFresh {
+    param(
+        [string]$QuartusPgmPath,
+        [string]$QuartusBinDir
+    )
+
+    Restart-Jtagd -QuartusBinDir $QuartusBinDir
+
+    return Get-JtagCables -QuartusPgmPath $QuartusPgmPath
+}
+
 $quartusRootDir = [System.Environment]::GetEnvironmentVariable("QUARTUS_ROOTDIR", [System.EnvironmentVariableTarget]::Machine)
 if (-not $quartusRootDir) {
     Show-Info "The environment variable QUARTUS_ROOTDIR is not set." "Error"
@@ -61,62 +206,103 @@ if (-not (Test-Path $quartusPgm)) {
     exit 1
 }
 
-$pofPath = Get-ChildItem -Path (Get-Location) -Filter "safe.pof" -Recurse -File -ErrorAction SilentlyContinue | Select-Object -First 1
-if (-not (Test-Path $pofPath)) {
-    Show-Info "Could not find 'safe.pof' in: $(Get-Location) or any subdirectories." "Error"
+$pofItem = Get-ChildItem -Path $PSScriptRoot -Filter "safe.pof" -File -ErrorAction SilentlyContinue | Select-Object -First 1
+if (-not $pofItem) {
+    Show-Info "Could not find 'safe.pof' next to the script: $PSScriptRoot" "Error"
     exit 1
 }
 
-function Program-DeviceSafePof {
-    param(
-        [string]$QuartusPgmPath,
-        [string]$PofFilePath
-    )
-	
-    $retrypath = $false
-    while ($true) {
+$pofFullPath = (Resolve-Path $pofItem.FullName).Path
 
-	if(!$retrypath) {
-            $start = Show-YesNo "Ready to flash this DE10-Lite with safe.pof?" "Flash DE10"
-        
-            if ($start -eq [System.Windows.Forms.DialogResult]::No) {
-                return $false
-            }
+Show-Info "Connect all DE10s you want to flash (one per USB-Blaster), then click OK." "Awaiting DE10s"
+
+$continue = $true
+$logDir = Join-Path (Get-Location) "logs"
+New-Item -ItemType Directory -Path $logDir -Force | Out-Null
+
+while ($continue) {
+
+    $start = Show-YesNo "Ready to flash all connected programmers with safe.pof?" "Flash Batch"
+    if ($start -ne [System.Windows.Forms.DialogResult]::Yes) {
+        break
+    }
+
+    $cables = Get-JtagCablesFresh -QuartusPgmPath $quartusPgm -QuartusBinDir $quartusBin
+    $results = Program-AllDevicesParallel `
+    -QuartusPgmPath $quartusPgm `
+    -QuartusBinDir  $quartusBin `
+    -PofFilePath    $pofFullPath `
+    -Cables         $cables `
+    -MaxAttempts    3
+
+    $passed = @($results | Where-Object { $_.ExitCode -eq 0 })
+    $failed = @($results | Where-Object { $_.ExitCode -ne 0 })
+
+    if ($results.Count -eq 0) {
+        $next = Show-OkCancel "No programmers detected. Connect devices and click OK to retry, or Cancel to quit." "Awaiting DE10s"
+        if ($next -ne [System.Windows.Forms.DialogResult]::OK) { $continue = $false }
+        continue
+    }
+
+    $passedNames = $passed | ForEach-Object { "$($_.CableIndex): $($_.CableName)" }
+    $failedNames = $failed | ForEach-Object { "$($_.CableIndex): $($_.CableName)" }
+
+    $summary = "Batch complete.`n`n" +
+           "Success: $($passed.Count) cable(s)" +
+           ($(if ($passedNames.Count) { "`n  " + ($passedNames -join ", ") } else { "" })) +
+           "`n`nFailures: $($failed.Count) cable(s)" +
+           ($(if ($failedNames.Count) { "`n  " + ($failedNames -join ", ") } else { "" }))
+    
+    if ($failed.Count -gt 0) {
+        $errText = ($failed | ForEach-Object {
+        $tail = @()
+        if (Test-Path $_.Log) {
+            $tail = Get-Content $_.Log -Tail 30 -ErrorAction SilentlyContinue
         }
+        $snippet = if ($tail.Count -gt 0) { ($tail -join "`r`n") } else { "(no log output captured)" }
 
-        # Run Quartus Programmer
-        & $QuartusPgmPath -m jtag -c 1 -o "pvb;$PofFilePath" *> $null
-        $exitCode = $LASTEXITCODE
+        "Cable $($_.CableIndex): $($_.CableName)`r`nExitCode: $($_.ExitCode)`r`n--- Last log lines ---`r`n$snippet`r`n"
+    }) -join "`r`n========================`r`n"
 
-        if ($exitCode -eq 0) {
-            Show-Info "Programming done. If working, Place the DE10 in the section corresponding to its status (working/broken)." "Done"
-            return $true
-        }
+    Show-Info $errText "Quartus Error Details"
+    }
 
-        $retry = Show-RetryCancel "Programming failed (exit code: $exitCode).`nRetry?" "Programming Failed"
-	if ($retry -eq [System.Windows.Forms.DialogResult]::Retry) {
-            $retrypath = $true
-        }
+    if ($failed.Count -eq 0) {
+        Show-Info ($summary + "`n`nProgramming done. Sort boards by status (working/broken).") "Done"
+    } 
+    else {
+        $retry = Show-RetryCancel ($summary + "`n`nRetry FAILED cables?") "Programming Failed"
+        if ($retry -eq [System.Windows.Forms.DialogResult]::Retry) {
+            while ($true) {
+                 $cablesFresh = Get-JtagCablesFresh -QuartusPgmPath $quartusPgm -QuartusBinDir $quartusBin
 
-        if ($retry -ne [System.Windows.Forms.DialogResult]::Retry) {
-            return $false
+                 $failedNamesOnly = @($failed | Select-Object -ExpandProperty CableName)
+                 $failedCableObjs = @($cablesFresh | Where-Object { $_.Name -in $failedNamesOnly })
+
+                 if ($failedCableObjs.Count -eq 0) { break }
+
+                 $cables = $cablesFresh
+
+                 $failedNames = $failed | ForEach-Object { "$($_.CableIndex): $($_.CableName)" }
+                 $retrySummary = "Retry complete.`n`nStill failing: $($failed.Count)`n  " + ($failedNames -join ", ")
+
+                 $errText = ($failed | ForEach-Object {
+                     $tail = @()
+                     if (Test-Path $_.Log) { $tail = Get-Content $_.Log -Tail 30 -ErrorAction SilentlyContinue }
+                     $snippet = if ($tail.Count -gt 0) { ($tail -join "`r`n") } else { "(no log output captured)" }
+                     "Cable $($_.CableIndex): $($_.CableName)`r`nExitCode: $($_.ExitCode)`r`n--- Last log lines ---`r`n$snippet`r`n"
+                 }) -join "`r`n========================`r`n"
+
+                 Show-Info $errText "Quartus Error Details (Retry)"
+
+                 $again = Show-RetryCancel ($retrySummary + "`n`nRetry again?") "Still Failing"
+                 if ($again -ne [System.Windows.Forms.DialogResult]::Retry) { break }
         }
     }
 }
 
-Show-Info "Connect the first DE10 before proceeding" "Awaiting DE10"
-
-$continue = $true
-
-while ($continue) {
-
-    # Flash device
-    [void](Program-DeviceSafePof -QuartusPgmPath $quartusPgm -PofFilePath $pofPath)
-
-    $next = Show-OkCancel "Connect the next device and click OK when ready." "Awaiting DE10"
-    switch ($next) {
-        ([System.Windows.Forms.DialogResult]::OK)     { }
-        ([System.Windows.Forms.DialogResult]::Cancel) { $continue = $false }
-        default { $continue = $false }
+    $next = Show-OkCancel "Disconnect finished boards, connect the next set, and click OK when ready.`nCancel to quit." "Next Batch"
+    if ($next -ne [System.Windows.Forms.DialogResult]::OK) {
+        $continue = $false
     }
 }
